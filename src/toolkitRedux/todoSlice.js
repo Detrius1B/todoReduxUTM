@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import _ from "lodash";
 
 const INITIAL_STATE = {
   todos: [],

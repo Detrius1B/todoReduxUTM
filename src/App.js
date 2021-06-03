@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setTodos } from "./toolkitRedux/todoSlice";
 
 import "./App.css";
+import Count from "./components/Count";
 
 function App() {
   const todos = useSelector((state) => state.todoSlice.todos);
@@ -14,6 +15,7 @@ function App() {
   const [inputText, setInputText] = useState("");
   const [status, setStatus] = useState("all");
   const [filteredTodos, setFilteredTodos] = useState([]);
+  const [count, setCount] = useState(todos.length);
 
   useEffect(() => {
     getLocalTodos();
@@ -22,9 +24,11 @@ function App() {
   const getLocalTodos = () => {
     if (localStorage.getItem("todos") === null) {
       localStorage.setItem("todos", JSON.stringify([]));
+      // setCount(0)
     } else {
       let todoLocal = JSON.parse(localStorage.getItem("todos"))
       dispatch(setTodos(todoLocal))
+      setCount(todos.length)
     }
   };
 
@@ -66,6 +70,7 @@ function App() {
         setTodos={setTodos}
         todos={todos}
       />
+      <Count />
     </div>
   );
 }
