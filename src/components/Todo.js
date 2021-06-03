@@ -7,22 +7,10 @@ const Todo = ({ text, todo }) => {
 
   const deleteHandler = () => {
     dispatch(removeTodo(todo.id));
-    // setTodos(todos.filter((el) => el.id !== todo.id));
   };
 
   const completedHandler = () => {
     dispatch(setCompleteTodo(todo.id));
-    // setTodos(
-    //   todos.map((item) => {
-    //     if (item.id === todo.id) {
-    //       return {
-    //         ...item,
-    //         completed: !item.completed,
-    //       };
-    //     }
-    //     return item;
-    //   })
-    // );
   };
 
   return (
